@@ -27,14 +27,23 @@ class Song implements SongInterface
 
 interface MusicPlayerInterface
 {
-    public function play(SongInterface $song);
+    public function play();
 }
 
 class MusicPlayer implements MusicPlayerInterface
 {
-    public function play(SongInterface $song)
+    /**
+     * @var SongInterface
+     */
+    private $song;
+
+    public function __construct(SongInterface $song)
     {
-        echo '"'.$song->getTitle().'"を再生するよ';
+        $this->song = $song;
+    }
+    public function play()
+    {
+        echo '"'.$this->song->getTitle().'"を再生するよ';
     }
 }
 
@@ -58,12 +67,12 @@ class Otoge
 
     public function play()
     {
-        $this->music_player->play($this->song);
+        $this->music_player->play();
     }
 }
 
 $song = new Song();
-$music_player = new MusicPlayer();
+$music_player = new MusicPlayer($song);
 $otoge = new Otoge($song, $music_player);
 $song->setTitle('test');
 $otoge->play();

@@ -17,9 +17,17 @@ class Song
 
 class MusicPlayer
 {
-    public function play($song)
+    private $song;
+
+    public function __construct()
     {
-        echo '"'.$song->getTitle().'"を再生するよ';
+        $this->song = new Song();
+        $this->song->setTitle('test');
+    }
+
+    public function play()
+    {
+        echo '"'.$this->song->getTitle().'"を再生するよ';
     }
 }
 
@@ -37,7 +45,7 @@ class Otoge
 
     public function play()
     {
-        $this->music_player->play($this->song);
+        $this->music_player->play();
         // その他得点記録したりとかの処理
     }
 }

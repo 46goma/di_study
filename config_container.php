@@ -8,7 +8,7 @@ $container['song'] = function ($c) {
 };
 
 $container['music_player'] = function ($c) {
-    return new MusicPlayer();
+    return new MusicPlayer($c['song']);
 };
 
 $container['otoge'] = function ($c) {
