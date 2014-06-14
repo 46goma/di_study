@@ -67,6 +67,7 @@ class Otoge
 
     public function play()
     {
+        echo '"'.$this->song->getTitle().'"で音ゲーを開始するよ';
         $this->music_player->play();
     }
 }
