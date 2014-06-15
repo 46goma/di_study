@@ -1,11 +1,7 @@
 <?php
 class Song
 {
-    public function __construct()
-    {
-        $this->title = null;
-    }
-    public function setTitle($title)
+    public function __construct($title=null)
     {
         $this->title = $title;
     }
@@ -21,8 +17,7 @@ class MusicPlayer
 
     public function __construct()
     {
-        $this->song = new Song();
-        $this->song->setTitle('test');
+        $this->song = new Song('test');
     }
 
     public function play()
@@ -38,8 +33,7 @@ class Otoge
 
     public function __construct()
     {
-        $this->song = new Song();
-        $this->song->setTitle('test');
+        $this->song = new Song('test');
         $this->music_player = new MusicPlayer();
     }
 
