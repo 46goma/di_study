@@ -1,7 +1,6 @@
 <?php
 interface SongInterface
 {
-    public function setTitle($title);
     public function getTitle();
 
     // ...など曲に関する諸々
@@ -9,13 +8,9 @@ interface SongInterface
 
 class Song implements SongInterface
 {
-    public function __construct()
+    public function __construct($title=null)
     {
-        $this->title = null;
-    }
-    public function setTitle($title)
-    {
-        return $this->title = $title;
+        $this->title = $title;
     }
     public function getTitle()
     {
@@ -72,8 +67,7 @@ class Otoge
     }
 }
 
-$song = new Song();
+$song = new Song('test');
 $music_player = new MusicPlayer($song);
 $otoge = new Otoge($song, $music_player);
-$song->setTitle('test');
 $otoge->play();

@@ -3,9 +3,9 @@ use Pimple\Container;
 
 $container = new Container();
 
-$container['song'] = function ($c) {
+$container['song'] = $container->factory(function ($c) {
     return new Song();
-};
+});
 
 $container['music_player'] = function ($c) {
     return new MusicPlayer($c['song']);
