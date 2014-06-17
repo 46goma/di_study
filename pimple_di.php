@@ -72,4 +72,7 @@ class Otoge
 
 $container['song.title'] = 'hoge';
 $otoge = $container['otoge'];
+$container['song.title'] = 'fuga';
+$otoge2 = $container['otoge'];
 $otoge->play();
+$otoge2->play();
