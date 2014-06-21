@@ -1,4 +1,12 @@
 <?php
+class TwitterClient
+{
+    public function post()
+    {
+        // 投稿処理
+        echo '音ゲーをプレイしたよとつぶやくよ';
+    }
+}
 class Song
 {
     public function __construct($title=null)
@@ -35,6 +43,7 @@ class Otoge
     {
         $this->song = new Song('test');
         $this->music_player = new MusicPlayer();
+        $this->twitter_client = new TwitterClient();
     }
 
     public function play()
@@ -43,7 +52,13 @@ class Otoge
         $this->music_player->play();
         // その他得点記録したりとかの処理
     }
+
+    public function tweet()
+    {
+        $this->twitter_client->post();
+    }
 }
 
 $otoge = new Otoge();
 $otoge->play();
+$otoge->tweet();
