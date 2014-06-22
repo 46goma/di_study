@@ -13,6 +13,10 @@ $container['music_player'] = $container->factory(function ($c) {
     return new MusicPlayer($c['song']);
 });
 
+$container['twitter_client'] = function ($c) {
+    return new TwitterClient();
+};
+
 $container['otoge'] = $container->factory(function ($c) {
-    return new Otoge($c['song'], $c['music_player']);
+    return new Otoge($c['song'], $c['music_player'], $c['twitter_client']);
 });

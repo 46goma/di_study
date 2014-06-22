@@ -2,6 +2,19 @@
 require_once 'vendor/autoload.php';
 require_once './config_container.php';
 
+interface TwitterClientInterface
+{
+    public function post();
+}
+class TwitterClient implements TwitterClientInterface
+{
+    public function post()
+    {
+        // 投稿処理
+        echo '音ゲーをプレイしたよとつぶやくよ';
+    }
+}
+
 interface SongInterface
 {
     public function getTitle();
@@ -57,10 +70,11 @@ class Otoge
      */
     private $music_player;
 
-    public function __construct(SongInterface $song, MusicPlayerInterface $music_player)
+    public function __construct(SongInterface $song, MusicPlayerInterface $music_player, TwitterClientInterface $twitter_client)
     {
         $this->song = $song;
         $this->music_player = $music_player;
+        $this->twitter_client = $twitter_client;
     }
 
     public function play()
@@ -68,11 +82,14 @@ class Otoge
         echo '"'.$this->song->getTitle().'"で音ゲーを開始するよ';
         $this->music_player->play();
     }
+
+    public function tweet()
+    {
+        $this->twitter_client->post();
+    }
 }
 
 $container['song.title'] = 'hoge';
 $otoge = $container['otoge'];
-$container['song.title'] = 'fuga';
-$otoge2 = $container['otoge'];
 $otoge->play();
-$otoge2->play();
+$otoge->tweet();
