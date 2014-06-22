@@ -40,6 +40,7 @@ class Otoge
 {
     private $song;
     private $music_player;
+    private $twitter_client;
 
     public function __construct()
     {

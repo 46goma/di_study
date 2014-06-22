@@ -71,6 +71,11 @@ class Otoge
      */
     private $music_player;
 
+    /**
+     * @var TwitterClientInterface
+     */
+    private $twitter_client;
+
     public function __construct(SongInterface $song, MusicPlayerInterface $music_player, TwitterClientInterface $twitter_client)
     {
         $this->song = $song;
