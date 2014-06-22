@@ -1,16 +1,4 @@
 <?php
-interface TwitterClientInterface
-{
-    public function post();
-}
-class TwitterClient implements TwitterClientInterface
-{
-    public function post()
-    {
-        // 投稿処理
-        echo '音ゲーをプレイしたよとつぶやくよ';
-    }
-}
 
 interface SongInterface
 {
@@ -52,6 +40,20 @@ class MusicPlayer implements MusicPlayerInterface
     public function play()
     {
         echo '"'.$this->song->getTitle().'"を再生するよ';
+    }
+}
+
+interface TwitterClientInterface
+{
+    public function post();
+}
+
+class TwitterClient implements TwitterClientInterface
+{
+    public function post()
+    {
+        // 投稿処理
+        echo '音ゲーをプレイしたよとつぶやくよ';
     }
 }
 

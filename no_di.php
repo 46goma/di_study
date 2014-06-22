@@ -1,12 +1,5 @@
 <?php
-class TwitterClient
-{
-    public function post()
-    {
-        // 投稿処理
-        echo '音ゲーをプレイしたよとつぶやくよ';
-    }
-}
+
 class Song
 {
     public function __construct($title=null)
@@ -31,6 +24,15 @@ class MusicPlayer
     public function play()
     {
         echo '"'.$this->song->getTitle().'"を再生するよ';
+    }
+}
+
+class TwitterClient
+{
+    public function post()
+    {
+        // 投稿処理
+        echo '音ゲーをプレイしたよとつぶやくよ';
     }
 }
 

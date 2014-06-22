@@ -6,6 +6,7 @@ interface TwitterClientInterface
 {
     public function post();
 }
+
 class TwitterClient implements TwitterClientInterface
 {
     public function post()
